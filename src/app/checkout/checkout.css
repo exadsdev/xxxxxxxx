@@ -1,43 +1,29 @@
-/* app/checkout/checkout.css */
-.btn-buy-strong {
-  background: linear-gradient(90deg, #6a5af9, #a66bff);
-  color: #fff;
-  border: 0;
-  font-weight: 700;
-  padding: 12px 16px;
-  border-radius: 12px;
-  transition: transform .08s ease;
+.qty-group .btn {
+  width: 42px;
 }
-.btn-buy-strong:hover { filter: brightness(1.05); }
-.btn-buy-strong:active { transform: translateY(1px); }
+
+.btn-buy-strong {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #0d6efd;
+  --bs-btn-border-color: #0d6efd;
+  --bs-btn-hover-bg: #0b5ed7;
+  --bs-btn-hover-border-color: #0a58ca;
+  --bs-btn-focus-shadow-rgb: 49,132,253;
+  padding: 0.9rem 1rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: .8rem;
+}
+
 .btn-buy-strong .sub {
   display: block;
   font-weight: 400;
-  font-size: 12px;
-  opacity: .9;
-}
-
-.qty-group .btn {
-  border-color: #e5e7eb;
-}
-.qty-group .form-control {
-  max-width: 120px;
+  font-size: .8rem;
+  opacity: .8;
 }
 
 .slip-preview {
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  display: block;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: .5rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
 }
-
-.bank-list .bank-item {
-  border: 1px dashed #d1d5db;
-  border-radius: 12px;
-  padding: 12px;
-}
-
-.table tfoot th {
-  background: #fafafa;
-}
-
-.card.shadow-sm { box-shadow: 0 8px 24px rgba(0,0,0,.06); }

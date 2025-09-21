@@ -206,7 +206,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <a href="" className="line">
+        <a href="https://lin.ee/fAKLljU" className="line">
           <img src="/images/line.webp" width="100%" alt="add line" />
         </a>
 
@@ -217,7 +217,7 @@ export default function HomePage() {
           </p>
           <a
             className="btn btn-success"
-            href="https://line.me/R/ti/p/@yourlineid"
+            href="https://lin.ee/fAKLljU"
           >
             แชท LINE
           </a>

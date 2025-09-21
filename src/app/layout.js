@@ -1,34 +1,62 @@
-// app/layout.jsx  (ตรวจชื่อให้ถูก: "layout.jsx" ไม่ใช่ laout.js)
 import "bootstrap/dist/css/bootstrap.min.css";
 import Script from "next/script";
 import "./globals.css";
-import Footer from './components/Footer'
-import Navbar from './components/Navbar'
-
-import Providers from "./providers"; // ห่อ SessionProvider และ NavBar ฝั่ง client
+import Footer from "./components/Footer";
+import { SITE, BRAND, DEFAULT_OG } from "./seo.config";
+import Providers from "./providers";
 
 export const metadata = {
-  title: "MyShop",
-  description: "Email/Password Auth",
+  metadataBase: new URL(SITE),
+  title: {
+    default: `${BRAND} | จำหน่ายบัญชีโฆษณา Facebook สำหรับธุรกิจ`,
+    template: `%s | ${BRAND}`,
+  },
+  description: `${BRAND} จำหน่ายบัญชีโฆษณา Facebook พร้อมใช้งาน ตั้งค่าอย่างถูกต้อง โปร่งใส สอดคล้องนโยบาย พร้อมคู่มือและคำแนะนำ`,
+  keywords: [
+    "บัญชีโฆษณา Facebook",
+    "ซื้อบัญชีโฆษณา",
+    "Business Manager",
+    "ยิงแอดเฟซบุ๊ก",
+    "ลงโฆษณาออนไลน์",
+    "บัญชีโฆษณาพร้อมใช้งาน",
+    "บัญชีโฆษณา" , "โฆษณาเฟสบุ๊ค ","บัญชีโฆษณาเฟสบุ๊ค","บัญชีเฟสเขียว","บัญชีเฟสเขียวยืนยันตัวตน","บัญชีเฟสเขียว 3 บรรทัด","บัญชีเฟสเขียว 2 บรรทัด","บัญชีโฆษณายืนยันตัวตนแล้ว","บัญชีโฆษณาเฟสบุ๊ค",
+
+  ],
+  openGraph: {
+    type: "website",
+    url: SITE,
+    siteName: BRAND,
+    title: `${BRAND} | จำหน่ายบัญชีโฆษณา Facebook สำหรับธุรกิจ`,
+    description: `${BRAND} จำหน่ายบัญชีโฆษณา Facebook พร้อมใช้งาน โปร่งใส สอดคล้องนโยบาย`,
+    images: [{ url: DEFAULT_OG, width: 1200, height: 630, alt: `${BRAND} OG` }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${BRAND} | จำหน่ายบัญชีโฆษณา Facebook สำหรับธุรกิจ`,
+    description: `${BRAND} จำหน่ายบัญชีโฆษณา Facebook พร้อมใช้งาน โปร่งใส สอดคล้องนโยบาย`,
+    images: [DEFAULT_OG],
+  },
+  alternates: { canonical: SITE },
+  robots: { index: true, follow: true },
 };
 
+export function generateViewport() {
+  return {
+    viewport: {
+      width: "device-width",
+      initialScale: 1,
+    },
+    themeColor: "#ffffff",
+  };
+}
+
 export default function RootLayout({ children }) {
-  // ไฟล์นี้เป็น Server Component (ไม่มี "use client")
-  // หลีกเลี่ยงการใช้ client hooks / context ที่นี่
   return (
     <html lang="th">
-      <head>
-        <meta name="theme-color" content="#0d6efd" />
-      </head>
+      <head />
       <body>
-        {/* ย้าย SessionProvider + NavBar ไปอยู่ใน Providers (client) */}
-        <Providers> 
-       
-          {children}
-          
-          </Providers>
-   <Footer/>
-        {/* โหลด Bootstrap JS ทาง Script ได้ */}
+        <Providers>{children}</Providers>
+        <Footer />
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
           strategy="afterInteractive"
@@ -37,3 +65,9 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+
+
+
+
+
